@@ -5,7 +5,7 @@
             <input type="checkbox" v-model="todo.complete">
             <span>{{todo.title}}</span>
         </label>
-        <span><button>shanchu</button></span>
+        <button v-show="isShow" class="btn btn-danger" @click="deleteItem()">删除</button>
     </li>
   
 </template>
@@ -14,7 +14,8 @@
   export default {
       props:{
           todo:Object,
-          index:Number
+          index:Number,
+          deleteTodo:Function
 
       },
       data(){
@@ -25,7 +26,6 @@
       },
       methods:{
           handleEnter(isEnter){
-              console.log(isEnter);
               if(isEnter){
                   this.bgColor="#aaaaaa";
                   this.isShow=true;
@@ -34,32 +34,49 @@
                   this.isShow=false;
               }
 
+          },
+          deleteItem(){
+              const {todo,index,deleteTodo}=this;
+              if(window.confirm(`确认删除${todo.title}么？`)){
+                deleteTodo(index);
+              }
           }
       }
   }
 </script>
 
 <style>
-    li{
-        list-style:none;
-        height: 36px;
-        line-height:36px;
-        padding:0 5px;
-        border-bottom:1px solid #ddd;
-    }
-    li label {
-        float: left;
-        cursor:pointer;
-    }
-    li button{
-        float: right;
-        display:none;
-        margin-top:3px;
-    }
-    li:before{
-        content: initial;
-    }
-    li:last-child{
-        border-bottom:none;
-    }
+    li {
+    list-style: none;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 5px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  li label {
+    float: left;
+    cursor: pointer;
+  }
+
+  li label li input {
+    vertical-align: middle;
+    margin-right: 6px;
+    position: relative;
+    top: -1px;
+  }
+
+  li button {
+    float: right;
+    display: none;
+    margin-top: 3px;
+  }
+
+  li:before {
+    content: initial;
+  }
+
+  li:last-child {
+    border-bottom: none;
+  }
 </style>

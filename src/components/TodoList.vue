@@ -1,6 +1,6 @@
 <template>
   <ul class="todo-main">
-      <TodoItem v-for="(todo,index) in todos" :key="index" :todo="todo" :index="index"/>
+      <TodoItem v-for="(todo,index) in todos" :key="index" :todo="todo" :index="index" :deleteTodo="deleteTodo"/>
   </ul>
 </template>
 
@@ -11,24 +11,26 @@ export default {
         TodoItem
     },
     props:{
-        todos:Array
+        todos:Array,
+        deleteTodo:Function 
     }
 };
 </script>
 
 <style>
-    .todo-main{
-        margin-left:0px;
-        border:1px solid #ddd;
-        border-radius: 2px;
-        padding:0px;
-    }
-    .todp-empty{
-        height: 40px;
-        line-height: 40px;
-        border:1px solid #ddd;
-        border-radius: 2px;
-        padding-left:5px;
-        margin-top:10px;
-    }
+  .todo-main {
+    margin-left: 0px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    padding: 0px;
+  }
+
+  .todo-empty {
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    padding-left: 5px;
+    margin-top: 10px;
+  }
 </style>
