@@ -1,1 +1,10 @@
 localStotage:存储本地文件
+事件：绑定监听，触发事件
+
+绑定监听：$on->vm的方法 $on(eventName)监听事件
+		         $emit(eventName,optionalPayload)触发事件 	
+
+slot插槽：此方式用于父组件向子组件传递`标签数据`，标签通信
+	其他方式是数据通信
+
+

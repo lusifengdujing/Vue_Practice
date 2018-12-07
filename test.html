@@ -1,39 +1,68 @@
-
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap Modal</title>
-    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
-</head>
-<body>
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-    Launch demo modal
-</button>
- 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                </button>
-                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-            </div>
-            <div class="modal-body">
-                <p>One fine body…</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save</button>
-            </div>
-        </div>
-    </div>
-</div>
- 
-<script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-<script src="http://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-</body>
-
+<!DOCTYPE html>  
+  
+<html>  
+<head>  
+    <meta charset="utf-8">  
+    <title>iview菜单示例</title>  
+    <link rel="stylesheet" type="text/css" href="iview/styles/iview.css">  
+    <script type="text/javascript" src="js/vue.js"></script>  
+    <script type="text/javascript" src="iview/iview.js"></script>  
+    <style type="text/css">  
+      
+</style>  
+</head>  
+<body>  
+<div id="app2">  
+    <i-menu mode="horizontal" :theme="menuTheme" active-name="1" @on-select="onMenuSelect">  
+        <Menu-Item name="1">  
+            <Icon type="ios-paper"></Icon>时事新闻  
+        </Menu-Item>  
+        <Menu-Item name="2">  
+            <Icon type="ios-people"></Icon>时事评论  
+        </Menu-Item>  
+        <Submenu name="3">  
+            <template slot="title">  
+                <Icon type="stats-bars"></Icon>特邀专家  
+            </template>  
+            <Menu-Group title="国际专家">  
+                <Menu-Item name="3-1">张无忌</Menu-Item>  
+                <Menu-Item name="3-2">赵　敏</Menu-Item>  
+                <Menu-Item name="3-3">张三丰</Menu-Item>  
+            </Menu-Group>  
+            <Menu-Group title="国内专家">  
+                <Menu-Item name="3-4">萧　峰</Menu-Item>  
+                <Menu-Item name="3-5">虚　竹</Menu-Item>  
+            </Menu-Group>  
+        </Submenu>  
+        <Menu-Item name="4">  
+            <Icon type="settings"></Icon>http://wallimn.iteye.com  
+        </Menu-Item>  
+    </i-menu>  
+    <br>  
+    <p>修改主题</p>  
+    <Radio-Group v-model="menuTheme">  
+        <Radio label="light"></Radio>  
+        <Radio label="dark"></Radio>  
+        <Radio label="primary"></Radio>  
+    </Radio-Group></div>  
+  
+    <script type="text/javascript">  
+        var vue = new Vue({  
+            el:'#app2',  
+            data:function(){  
+                return {  
+                    menuTheme: 'primary'  
+                };  
+            },  
+            methods:{  
+                onMenuSelect:function(name){  
+                    console.log(name," is clicked!");  
+                    if(name==="4"){  
+                        window.location.href='http://wallimn.iteye.com';  
+                    }  
+                }  
+            }  
+        });  
+    </script>  
+</body>  
+</html>  
