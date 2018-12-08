@@ -6,6 +6,7 @@
         type="text"
         placeholder="enter the name you search"
         v-model="searchName"
+        @keyup.13="search()"
       />
       <button @click="search()">Search</button>
     </div>
