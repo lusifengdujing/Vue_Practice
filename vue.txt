@@ -11,5 +11,17 @@ slot插槽：此方式用于父组件向子组件传递`标签数据`，标签通信
 	其他方式是数据通信
 
 vue UI组件库
-Mint UI：移动端 https://mint-ui.github.io/#!/zh-cn
+Mint UI：移动端 https://mint-ui.github.io/#!/zh-cn	
 Elment：PC端 
+
+SPA 应用，单页应用
+路由器：管理路由，
+路由：
+	1.映射关系，k->v
+	2.k:path ;v:处理请求的回调函数（后台路由）；组件（前端路由）
+当前路由组件
+	<router-view>:用来显示当前路由组件界面        
+编写使用路由的3步：
+	1.定义路由组件
+	2.注册路由
+	3.使用路由<router-link> <router-view>
