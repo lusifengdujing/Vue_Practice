@@ -25,3 +25,16 @@ SPA 应用，单页应用
 	1.定义路由组件
 	2.注册路由
 	3.使用路由<router-link> <router-view>
+
+路由缓存 （组件对象）
+	<keep-alive>
+		<router-view></router-view>
+	<keep-alive>
+ 	实时性
+
+页面跳转
+a->b
+1.添加标签
+	扩充：URL
+		结构：第一部分：模式/协议（scheme）:
+		          第二部分：文件所在的服务器的名称或IP地址，后面是到达这个文件的路径和文件本身的名称。
